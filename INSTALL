@@ -1,0 +1,65 @@
+This package has only been installed twice, so this document may be
+incomplete, and installation of a flashybrid system necessary involves some
+manual work. If you are unfamiliar with the system, read the README and
+config files first. Flashybrid defaults to being disabled, to avoid
+accidental installs breaking a system, so to use it you first must enable
+it in /etc/default/flashybrid.
+
+There are two general installation paths, depending on the size of your
+flash disk. If it is big enough for the desired Debian system, then you
+should install Debian and the flashybrid package to it, if you have not
+already done so, and then it's just a matter of configuring flashybrid to
+use the flash efficiently.
+
+If the flash disk is not big enough to hold the whole needed Debian system,
+you can instead install to a different drive initially, and then
+selectively copy the parts you need to the flash disk, get it booting
+(without the hard disk). This could take several iterations, to find
+everything that is needed to boot the system up.
+
+Now you should have a (semi-)working flash system with flashybrid installed
+on it. You probably want to make your flash disk be mounted read-only, to
+prevent accidental writes to the disk, which could wear it out if they go
+on too long. Edit /etc/fstab and put "ro" in the options area of the line
+for your flash disk. Make sure that /etc/flashybrid/config has RAMMOUNT
+set, and that /etc/flashybrid/ramstore lists the right set of directories.
+This may take a few iterations of booting the system and seeing what needs
+to write to the hard disk, and updating ramstore.
+
+Now you can add the hard disk to the mix, if you have and need one. You
+should make the system not mount it on boot, as flashybrid will take care
+of mounting it when you need it. Then you can edit /etc/flashybrid/config
+and tell it where the disk mounts, and /etc/flashybrid/diskstore to tell
+it what directories from the disk to bind mount into the flash filesystem.
+Note that you should make empty directories in the flash filesystem to
+serve as the mount points for those directories.
+
+A few things to keep in mind:
+
+- modprobe will try to write to /var/log/ksymoops before flashybrid is
+  started. I recommend deleting this directory to avoid filling up your
+  disk anyway, and to avoid ugly messages from modprobe during boot.
+- If you use ppp with usepeerdns, it will want to write to
+  /etc/ppp/resolv.conf, on the read-only filesystem. This can be avoided by
+  making that file a link to /var/run/ppp-resolv.conf.
+- The output of df will be huge and ugly when flashybrid is running.
+  This is normal.
+- Depending on the amount of stuff written to syslog (turning off MARK is a
+  good idea), you may want to make logrotate rotate the logs more
+  frequently to avoid runnin gout of ramdisk and/or flash.
+- Mail systems that use inodes as part of their queue management may get
+  confused, as their mail queue, if it is listed in ramstore, may change
+  inodes when the system is rebooted. Postfix warning about this but seems
+  to deal with it in.
+- You'll probably see an error message about being able to mount
+  /etc/nologin on boot, due to /etc being read-only. It's nothing to worry
+  about.
+- /etc/mtab is a problem, I recommend linking it to /proc/mounts, although
+  be warned that this can cause problems of its own, including issues with
+  loop-mounts.
+- There are still lots of similar problems in Debian with read-only
+  /etc, which you may need to work around.
+
+Finally, if you get this far, you probably have suggestion for improvements
+
+to this document, so mail me: Joey Hess <joey@kitenet.net>

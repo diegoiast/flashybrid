@@ -1,0 +1,27 @@
+# This is a list of directories that are stored on a hard disk instead of
+# on the flash. When the system is in full mode the directories on the disk
+# will be bind mounted into the root filesystem.
+#
+# If you want to keep some files from a directory on flash and others on
+# disk, you can edit the partial file instead.
+
+# The easiest thing to move to a disk is documentation, so you should start
+# here:
+#/usr/share/doc
+#/usr/share/man
+#/usr/share/info
+
+# Other candidates for disk, in approximate order of difficulty to move
+# them to disk:
+#/usr/share/locale
+#/usr/X11R6
+#/root
+#/var/cache/apt
+#/var/lib/apt
+#/var/lib/dpkg
+#/usr/share
+#/usr/lib
+
+# Note that if you choose to move all of /usr to disk, you should take care
+# to not also list directories under /usr as that would confuse flashybrid.
+#/usr

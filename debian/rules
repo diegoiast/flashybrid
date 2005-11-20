@@ -1,0 +1,40 @@
+#!/usr/bin/make -f
+
+build:
+	dh_testdir
+	$(MAKE)
+
+clean:
+	dh_testdir
+	dh_testroot
+	-$(MAKE) clean
+	dh_clean
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_clean -k
+	dh_install debian/apt.conf etc/apt/apt.conf.d/10flashybrid
+	$(MAKE) DEST=debian/flashybrid install
+
+binary-arch: build install
+
+binary-indep: build install
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs
+	dh_installdocs README INSTALL TODO
+	# It's not a good idea to start flashybrid on install or upgrade.
+	# It's an rcS script..
+	dh_installinit --no-start -- start 40 S . start 39 6 .
+	dh_installman
+	dh_link
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install

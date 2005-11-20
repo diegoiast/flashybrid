@@ -1,0 +1,46 @@
+#!/bin/sh
+# Enter embedded mode.
+# This program should be fully idempotent.
+
+set -e
+
+CONFDIR=/etc/flashybrid
+. $CONFDIR/config
+
+# Trim trailing slash from FLASHMOUNT; this is necessary so I can use
+# $FLASHMOUNT$dir below when building up mount points, and not get extra
+# slashes.
+FLASHMOUNT=${FLASHMOUNT%%/}
+
+is_mounted () {
+	grep -q " $1 " /proc/mounts
+}
+
+if [ -e $CONFDIR/partial ]; then
+	for file in $(grep -v '^#' $CONFDIR/partial); do
+		dir=${file%/*}
+		if [ ! -e $FLASHMOUNT$dir/.partial ]; then
+			if is_mounted $FLASHMOUNT$dir; then
+				umount $FLASHMOUNT$dir
+			fi
+			mount --bind $FLASHMOUNT$dir.partial $FLASHMOUNT$dir
+		fi
+	done
+fi
+
+if [ -e $CONFDIR/diskstore ]; then
+	for dir in $(grep -v '^#' $CONFDIR/diskstore); do
+		if [ -d $FLASHMOUNT$dir ]; then
+			if is_mounted $FLASHMOUNT$dir; then
+				umount $FLASHMOUNT$dir
+			fi
+			mount --bind /lib/flashybrid/ondisk_dir $FLASHMOUNT$dir
+		fi
+	done
+fi
+
+if [ -n "$DISKMOUNT" ] && is_mounted $DISKMOUNT; then
+	umount $DISKMOUNT
+fi
+
+eval $EMBED_CMDS || true

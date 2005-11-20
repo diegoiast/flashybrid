@@ -1,0 +1,11 @@
+# This file controls the flashybrid init script.
+
+# Whether to start flashybrid on boot, and shut it down on shutdown.
+# This has the potential to break your system if it is turned on, so
+# make sure you understand flashybrid, and have configured it for your
+# system, before turning this on.
+ENABLED=no
+
+# Wheter to display a message before a directory is synchornized or not.
+VERBOSE=yes
+

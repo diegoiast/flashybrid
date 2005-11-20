@@ -1,0 +1,7 @@
+* fh-update will not remove files from partial dirs if the files are
+  removed from the partial file. To fix I'll need to store state in /var
+* Need to stop the init script on halt too -- rc0 I think.
+* Need cron.daily/weekly/monthly 0 and 99 scripts that mount and unmount
+  the disk (optionally, where needed).
+* The ondisk_dir could be marked immutable, or copied to a RO ramdisk,
+  to prevent accidental writes to offline dirs.

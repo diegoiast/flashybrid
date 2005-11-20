@@ -1,0 +1,17 @@
+.TH FH-SYNC 8
+.SH NAME
+fh-sync \- re-mount the root file system as read only
+.SH SYNOPSIS
+.B fh-sync
+.SH DESCRIPTION
+Synchronize the ram storage of flash hybrid with the drive. The machine must be
+on embeded mode before the call, and after the call the root filesystem will
+be re-mounted as read only.
+
+Loosly based on the original init scripts of flash-hybrid.
+
+.SH SEE ALSO
+.BR fh-embed (8)
+.BR fh-update (8)
+.SH AUTHOR
+Diego Iastrubni <diego.iastrubni@xorcom.com>

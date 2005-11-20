@@ -1,0 +1,3 @@
+The usual contents of this directory are in a disk that is not presently
+attached to the system. To mount the disk and populate this directory,
+run the fh-full command. For details, see the flashybrid documentation.

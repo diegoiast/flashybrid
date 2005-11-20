@@ -1,0 +1,58 @@
+#!/bin/sh
+
+#
+# Synchronize the ram storage of flash hybrid with the drive.
+# Loolsy based on the init scripts of flash-hybrid
+#
+# - Diego Iastrubni <diego.iastrubni@xorcom.com>
+
+
+CONFDIR=/etc/flashybrid
+
+if [ -e $CONFDIR/config ]; then
+	. $CONFDIR/config
+else
+	# we ignore quietly the setups in which flash hybrid is not installed
+	exit
+fi
+
+ENABLED=no
+if [ -e /etc/default/flashybrid ]; then
+	. /etc/default/flashybrid
+fi
+
+if [ -z "$RAMMOUNT" ]; then
+	exit 0
+fi
+
+is_mounted () {
+	grep -q " $1 " /proc/mounts
+}
+
+	
+if [ "$ENABLED" != yes ]; then
+	echo "Not shutting down flashybrid system: disabled."
+	exit
+fi
+
+printf "Syncing flashybrid system..."
+
+# Copy data to flash.
+# Remount the flash read-write so the copies to it will work.
+mount -o remount,rw /
+for dir in $(grep -v '^#' $CONFDIR/ramstore); do
+	if [ -d $RAMMOUNT/$dir ] && [ -d $RAMMOUNT/$dir.flash ]
+	then
+		if [ "$VERBOSE" = "yes" ]; then
+        		echo "Synchronizing $dir"
+		fi
+		
+		# rsync is used to avoid churning the flash
+		# unnecessarily. The trailing slashes are very
+		# important..
+		sudo rsync --delete -a $RAMMOUNT/$dir/ $RAMMOUNT/$dir.flash/
+	fi
+done
+sync
+
+mount -o remount,ro /

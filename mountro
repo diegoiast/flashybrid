@@ -1,0 +1,10 @@
+#!/bin/sh
+
+#
+# remount the system in RO mode
+#
+# - Diego Iastrubni <diego.iastrubni@xorcom.com>
+
+
+mount -o remount,ro /
+

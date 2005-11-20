@@ -1,0 +1,137 @@
+#!/bin/sh
+# Set up/shutdown the flashybrid system, including the ramdisk and partial
+# directory bind mounts. This needs to run at the part of system bootup that
+# mounts all the disks. It should also run at shutdown right before
+# filesystems are unmounted.
+
+CONFDIR=/etc/flashybrid
+if [ -e $CONFDIR/config ]; then
+	. $CONFDIR/config
+fi
+
+ENABLED=no
+if [ -e /etc/default/flashybrid ]; then
+	. /etc/default/flashybrid
+fi
+
+if [ -z "$RAMMOUNT" ]; then
+	exit 0
+fi
+
+is_mounted () {
+	grep -q " $1 " /proc/mounts
+}
+
+case "$1" in
+start)
+	if [ "$ENABLED" != yes ]; then
+		echo "Not setting up flashybrid system: disabled."
+		exit
+	fi
+	
+	printf "Setting up flashybrid system..."
+
+	# Set up partial directories and so on, make sure disk is
+	# unmounted.
+	fh-embed >/dev/null
+	
+	# Set up ram disk to hold variable data.
+	if ! is_mounted $RAMMOUNT; then
+		mount tmpfs -t tmpfs $RAMMOUNT
+	fi
+
+	# Temporary directories on ram disk.
+	for dir in $(grep -v '^#' $CONFDIR/ramtmp); do
+		mkdir -p -m 1777 $RAMMOUNT/$dir
+		if is_mounted $dir; then
+			umount $dir
+		fi
+		mount --bind $RAMMOUNT/$dir $dir
+	done
+
+	# Copy data from flash to ram disk for these directories.
+	for dir in $(grep -v '^#' $CONFDIR/ramstore); do
+		# Skip dirs that are not present.
+		if [ -d $dir ]; then
+			if [ "$VERBOSE" == yes ]; then
+			    echo "Syncrhonizing $dir"			    
+			fi
+			
+			ramdir=$RAMMOUNT$dir
+			if is_mounted $dir; then
+				umount $dir
+			fi
+			if is_mounted $ramdir.flash; then
+				umount $ramdir.flash
+			fi
+			if [ ! -d $ramdir ]; then
+				mkdir -p ${ramdir%/*} # dirname
+			        cp -a $dir $ramdir
+			fi
+			mkdir -p $ramdir.flash
+			mount --bind $dir $ramdir.flash
+			mount --bind $ramdir $dir
+		fi
+	done
+
+	echo "done."
+	mount -o remount,ro /
+;;
+
+stop)
+	if [ "$ENABLED" != yes ]; then
+		echo "Not shutting down flashybrid system: disabled."
+		exit
+	fi
+	
+	printf "Shutting down flashybrid system..."
+	
+	# Copy data to flash.
+	# Remount the flash read-write so the copies to it will work.
+	mount -o remount,rw /
+	for dir in $(grep -v '^#' $CONFDIR/ramstore); do
+		if [ -d $RAMMOUNT/$dir ] && [ -d $RAMMOUNT/$dir.flash ]; then
+			if [ "$VERBOSE" == yes ]; then
+			    echo "Synchronizing $dir"			    
+			fi
+			
+			# rsync is used to avoid churning the flash
+			# unnecessarily. The trailing slashes are very
+			# important..
+			rsync --delete -a $RAMMOUNT/$dir/ $RAMMOUNT/$dir.flash/
+		fi
+	done
+
+	for dir in $(grep -v '^#' $CONFDIR/ramtmp); do
+		if is_mounted $dir; then
+			umount $dir
+		fi
+	done
+	
+	for dir in $(grep -v '^#' $CONFDIR/ramstore); do
+		ramdir=$RAMMOUNT$dir
+		if is_mounted $ramdir.flash; then
+			umount $ramdir.flash
+		fi
+		if is_mounted $dir; then
+			umount $dir
+		fi
+	done
+	
+	if is_mounted $RAMMOUNT; then
+		umount $RAMMOUNT
+	fi	
+	
+	echo "done."
+;;
+
+restart|force-reload)
+	$0 stop
+	$0 start
+;;
+
+*)
+	echo "Usage: $0 {start|stop|restart|force-reload}"
+	exit 1
+;;
+esac

@@ -1,0 +1,38 @@
+flashybrid (0.004-2) unstable; urgency=low
+
+  * New mountro and mountrw scripts
+  * New flashybrid-sync script
+  * New verbose option on /etc/defaults, used by init script, set to "yes" by default
+  * Upgraded version to 0.004
+  * Updated Debian standards version
+
+ -- Diego Iastrubni <diego.iastrubni@xorcom.com>  Thu, 9 Sep 2005 17:00:00 +0200
+
+flashybrid (0.002) unstable; urgency=low
+
+  * Add GPL to source package.
+  * Add When section to README.
+  * Lots of updates to docs.
+  * I am not longer using partial directories, so that part of flashybrid
+    is now marked as unsupported. I will take patches though, and it was very
+    useful for a year, so I left it in.
+  * Split fh into fh-full and fh-embed.
+  * Add diskstore support.
+  * Make DISKMOUNT optional.
+  * Add an /etc/default file that controls whether the init script is
+    enabled. Ship with it disabled to avoid hosing systems.
+  * Use more bind mounts, and less modification of the root filesystem.
+  * Make init script better about not doubling mounts when re-started,
+    and make it unmount the ram disk on stop.
+  * Supports /dev in a ramdisk for non-devfs system support.
+  * Move RAMTMP to ramtmp file.
+  * Add man pages.
+  * Add --delete to rsync call, delete old files on shutdown sync.
+
+ -- Joey Hess <joeyh@debian.org>  Sun, 23 Nov 2003 12:55:28 -0500
+
+flashybrid (0.001) local; urgency=low
+
+  * First prerelease. Not targeted at Debian archive.
+
+ -- Joey Hess <joeyh@debian.org>  Fri, 11 Oct 2002 13:59:04 -0400

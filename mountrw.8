@@ -1,0 +1,19 @@
+.TH MOUNTRW 8
+.SH NAME
+mountrw \- remount the root file systems as read/write
+.SH SYNOPSIS
+.B mountro
+.SH DESCRIPTION
+mountrw remounts the root filesystem as read/write. The script is just a wrapper to a 
+normal mount command.
+
+.nf
+.B mount -o mount,ro /
+.fi
+
+.SH SEE ALSO
+.BR fh-embed (8)
+.BR fh-update (8)
+.BR mountro (8)
+.SH AUTHOR
+Diego Iastrubni <diego.iastrubni@xorcom.com>

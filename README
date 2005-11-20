@@ -1,0 +1,79 @@
+What:
+
+Flashybrid is a system to help in setting up and managing hybid
+flash/disk/ram based Debian systems which can run most of the time
+using only a small flash disk for their root filesystem and do a useful,
+but limited task (such as being a router, or a PDA, or a rescue system
+on a USB keydrive). The flash can be as small as 32 mb, though 64 to 256
+is more comfortable.
+
+When such a system needs to be upgraded or managed, or if you need a
+full-fledged Debian system temporarily, a flashybrid system converts
+quickly from an embedded system into a larger, normal Debian system.
+
+Flashybrid supports systems with a supplimental hard disk that holds the
+parts of Debian that cannot fit on flash. It can also support larger
+flash-based systems with no supplimental hard disk. It makes it easy to
+mount a flash disk read-only, to avoid excessive writes to the flash, by
+storing the writable parts in a ram disk and rsyncing them back to the
+flash at shutdown.
+
+Flashybrid needs rsync, and the 2.4 or greater linux kernel with tmpfs
+support built in.
+
+Why:
+
+I developed this system for my little OpenBrick computer, which I use as a
+wireless access point / dialup firewall most of the time, in fairly extreme
+environmental conditions where I do not want a hard disk to be running, but
+which I occasionally use for long overnight downloads, or hook up a monitor
+and use as a desktop machine, and which I want to be able to manage as a
+regular Debian system for easy access to upgrades and security fixes. My
+OpenBrick originally had 32 mb of flash, 128 mb of ram, and a 1 gb hard
+disk, and now sports 256 mb of flash and 10 gb of disk.
+
+How:
+
+A flashybrid system boots from its flash, and has all the necessary
+libraries and programs on the flash to bring up whatever daemons are
+needed for it to perform its embedded functions. 
+
+Care is taken to keep the flash mounted read-only to prevent excessive
+writes to the flash which could wear it out. Directories such as /var/log
+which need to be writable are stored on a ram disk, and have their
+contents stored back to the flash on reboot.
+
+To turn the embedded system into a full Debian system, a hard disk is
+optionally mounted, which contains the bits of the Debian system that
+didn't fit on the flash.
+
+Some directories like /usr/bin may be too large to fit on a flash, and yet
+your system might need a few files from the directories on the flash.
+Flashybrid includes support for such directories; a directory is set up on
+the flash containing parts of the directory, and is bind mounted into
+place. When the hard disk is mounted, the bind mount is changed to mount
+the complete directory into place.
+
+Flashybrid integrates with apt, so when you run apt it makes sure the
+full system is available, and after apt runs it updates the
+abovementioned directories.
+
+Flashybrid is configured by files in /etc/flashybrid. The fh-full and
+fh-embed commands make it easy to transition a system between the two
+states. /etc/init.d/flashybrid init script is run at system boot and
+shutdown. The fh-update program updates a flashybrid system after apt
+is run, or you can run it by hand after making manual changes.
+
+For details on setting up a flashybrid system, see INSTALL.
+
+Who:
+
+Flashybrid was created by Joey Hess <joey@kitenet.net>
+
+When:
+
+I originally wrote flashybrid in 2002, and used it successfully for a year
+with a embedded Debian system with only 32 mb of flash. Then I bought a
+much larger 256 mb flash, and armed with a year's experience and less
+I rewrote flashybrid to make it easier to install, more robust, and finally
+released it to the public in fall 2003.

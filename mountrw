@@ -1,0 +1,10 @@
+#!/bin/sh
+
+#
+# remount the system in RW mode
+#
+# - Diego Iastrubni <diego.iastrubni@xorcom.com>
+
+
+mount -o remount,rw /
+

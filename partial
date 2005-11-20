@@ -1,0 +1,45 @@
+# Partial directory copy config file for flashybrid.
+#
+# WARNING: This may still work, but the author no longer uses it on his
+#          systems and so it is largely untested and unsupported.
+#
+# This file which helps you set up and manage directories on a flash disk
+# (or other small medium) that contain subsets of directories on a hard 
+# disk. Use it for directories like /usr/bin, that have a lot of extraneous
+# files, and a few files that your system really needs in embedded mode. Do
+# _not_ use it for directories like /var/lib, which have lots of
+# subdirectories which often change and others that are static.
+# 
+# Simply list all the files that you want to have on the flash disk. You
+# can use wildcards too.
+#
+# fh-update will look at the listed files and set up .partial
+# directories that contain them (for example, /usr/bin.partial). The fh
+# program will then use bind mounts to arrange for the full directory from
+# the disk to be mounted there when the disk is mounted, and the partial
+# directory is mounted there when the disk is unmounted.
+# 
+# It is not a good idea to put libraries in here.
+
+# Used by flashybrid script to save ramdisk contents.
+#/usr/bin/rsync
+
+# Stuff the admin uses administering the system in embedded mode.
+#/usr/bin/vim
+#/usr/bin/tail
+#/usr/bin/pon
+#/usr/bin/poff
+#/usr/bin/wc
+
+# Used by debian boot.
+#/usr/bin/find
+
+# Used by ip-masq.
+#/usr/bin/sort
+#/usr/bin/cut
+#/usr/bin/uniq
+
+# Used by boa init script.
+#/usr/bin/awk
+# This is what the awk alternative points to..
+#/usr/bin/mawk

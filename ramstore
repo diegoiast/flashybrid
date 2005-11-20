@@ -1,0 +1,32 @@
+# This is a list of directories that are used to store variable data
+# that is written to during normal operation of the system, and that should
+# be preserved across reboots.
+#
+# On boot, the listed directories on your flash disk will be copied to the
+# ram disk, and then bind mounts will be used to make the directories on
+# the ram disk replace them.
+#
+# On shutdown, the contents of those directories on the ramdisk will be
+# rsynced back to the flash disk.
+#
+# Directories listed here that are not present will be silently ignored.
+
+# Should always be in ram disk.
+/var/run
+/var/log
+/var/lock
+/var/lib/urandom
+/var/lib/logrotate
+
+# If you don't use devfs, you will want /dev in ram, since many things
+# need to modify it when the system is running.
+/dev
+
+# Necessary if the system is to be able to send mail while in embedded
+# mode.
+/var/spool/exim
+/var/spool/postfix
+/var/mail
+
+# Other stuff you may find useful.
+/var/lib/dhcp

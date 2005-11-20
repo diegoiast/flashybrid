@@ -1,0 +1,9 @@
+# This is a list of directories that should be set up as temporary
+# directories in the ramdisk. On boot, the directories listed will be
+# created on the ramdisk, mode 1777. Their contents will not be saved
+# across reboots. The equivilent directories on your flash will be
+# removed and replaced with symlinks to these directories.
+/tmp
+# This could go in ramstore if you prefer for its contents to persist
+# across reboots.
+/var/tmp
