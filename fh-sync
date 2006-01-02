@@ -37,6 +37,12 @@ fi
 
 printf "Syncing flashybrid system..."
 
+# if verbose, make a new line feed, 
+# this way the first message will get a new line
+if [ "$VERBOSE" = "yes" ]; then
+	echo " "
+fi
+
 # Copy data to flash.
 # Remount the flash read-write so the copies to it will work.
 mount -o remount,rw /
