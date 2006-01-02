@@ -24,7 +24,7 @@
 
 # Necessary if the system is to be able to send mail while in embedded
 # mode.
-/var/spool/exim
+/var/spool/exim4
 /var/spool/postfix
 /var/mail
 

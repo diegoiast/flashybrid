@@ -16,7 +16,7 @@ RAMMOUNT=/ram
 # this controls where it will be mounted, and /etc/fstab should be set up
 # to allow mounting of the disk to this directory. If you have no disk,
 # comment it out.
-DISKMOUNT=/disk
+#DISKMOUNT=/disk
 
 # Commands to run to enter full mode. The disk will be mounted before
 # this.
