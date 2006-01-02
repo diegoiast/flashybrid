@@ -7,3 +7,9 @@
 # This could go in ramstore if you prefer for its contents to persist
 # across reboots.
 /var/tmp
+
+/var/lock
+/var/lib/urandom
+/var/lib/php4
+/var/lib/dhcp
+/var/lib/misc

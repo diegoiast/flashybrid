@@ -12,11 +12,26 @@
 # Directories listed here that are not present will be silently ignored.
 
 # Should always be in ram disk.
+/root
 /var/run
 /var/log
-/var/lock
-/var/lib/urandom
+/var/lib/op-panel
 /var/lib/logrotate
+/var/lib/mysql
+/var/lib/asterisk
+/var/spool/asterisk/outgoing
+/var/lib/exim4
+/var/lib/discover
+/etc
+
+#/var/lock
+#/var/lib/urandom
+#/var/lib/misc
+#/var/lib/php4
+#/etc/asterisk
+#/etc/op-panel
+#/etc/hotplug/.run
+#/etc/network/run
 
 # If you don't use devfs, you will want /dev in ram, since many things
 # need to modify it when the system is running.
@@ -29,4 +44,4 @@
 /var/mail
 
 # Other stuff you may find useful.
-/var/lib/dhcp
+#/var/lib/dhcp
