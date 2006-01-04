@@ -1,8 +1,8 @@
 Source: flashybrid
 Section: admin
 Priority: extra
-Maintainer: Joey Hess <joeyh@debian.org>
-Uploaders: Diego Iastrubni <diego.iastrubni@xorcom.com>
+Maintainer: Diego Iastrubni <diego.iastrubni@xorcom.com> 
+Uploaders: Tzafrir Cohen <tzafrir.cohen@xorcom.com>
 Build-Depends: debhelper (>= 4.1.17)
 Standards-Version: 3.6.1
 
