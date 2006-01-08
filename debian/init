@@ -29,7 +29,9 @@ start)
 		exit
 	fi
 	
-	printf "Setting up flashybrid system..."
+	if [ "$VERBOSE" != yes ]; then
+		printf "Setting up flashybrid system..."
+	fi
 
 	# Set up partial directories and so on, make sure disk is
 	# unmounted.
@@ -42,11 +44,14 @@ start)
 
 	# Temporary directories on ram disk.
 	for dir in $(grep -v '^#' $CONFDIR/ramtmp); do
-		mkdir -p -m 1777 $RAMMOUNT/$dir
-		if is_mounted $dir; then
-			umount $dir
+		if [ -d $dir ]; then
+        		mkdir -p -m 1777 $RAMMOUNT/$dir
+			if is_mounted $dir; then
+				umount $dir
+			fi
+			mount --bind $RAMMOUNT/$dir $dir
 		fi
-		mount --bind $RAMMOUNT/$dir $dir
+		
 	done
 
 	# Copy data from flash to ram disk for these directories.
@@ -54,7 +59,7 @@ start)
 		# Skip dirs that are not present.
 		if [ -d $dir ]; then
 			if [ "$VERBOSE" == yes ]; then
-			    echo "Syncrhonizing $dir"			    
+			    echo -n "Syncrhonizing RAM - $dir"
 			fi
 			
 			ramdir=$RAMMOUNT$dir
@@ -67,10 +72,11 @@ start)
 			if [ ! -d $ramdir ]; then
 				mkdir -p ${ramdir%/*} # dirname
 			        cp -a $dir $ramdir
-			fi
+			fi			
 			mkdir -p $ramdir.flash
 			mount --bind $dir $ramdir.flash
 			mount --bind $ramdir $dir
+			echo
 		fi
 	done
 
@@ -84,7 +90,9 @@ stop)
 		exit
 	fi
 	
-	printf "Shutting down flashybrid system..."
+	if [ "$VERBOSE" != yes ]; then
+		printf "Shutting down flashybrid system..."
+	fi
 	
 	# Copy data to flash.
 	# Remount the flash read-write so the copies to it will work.
@@ -92,13 +100,14 @@ stop)
 	for dir in $(grep -v '^#' $CONFDIR/ramstore); do
 		if [ -d $RAMMOUNT/$dir ] && [ -d $RAMMOUNT/$dir.flash ]; then
 			if [ "$VERBOSE" == yes ]; then
-			    echo "Synchronizing $dir"			    
+			    echo -n "Synchronizing flash - $dir"
 			fi
 			
 			# rsync is used to avoid churning the flash
 			# unnecessarily. The trailing slashes are very
 			# important..
 			rsync --delete -a $RAMMOUNT/$dir/ $RAMMOUNT/$dir.flash/
+			echo
 		fi
 	done
 
