@@ -15,4 +15,4 @@
 /var/lib/misc
 /var/lib/ntp
 /var/lib/urandom
-/var/lib/apache/mod-bandwidth/link/
+/var/lib/apache/mod-bandwidth/link
