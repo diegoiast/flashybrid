@@ -34,12 +34,18 @@ start)
 	fi
 
 	# Set up partial directories and so on, make sure disk is
-	# unmounted.
+	# unmounted.	
 	fh-embed >/dev/null
+	
+	EXTRA_PARAMS=""
+	
+	if [ "xx$FLASH_MAX" != "xx"]; then
+	    EXTRA_PARAMS="size=$FLASH_MAX"
+	fi
 	
 	# Set up ram disk to hold variable data.
 	if ! is_mounted $RAMMOUNT; then
-		mount tmpfs -t tmpfs $RAMMOUNT
+		mount tmpfs -t tmpfs $RAMMOUNT $EXTRA_PARAMS
 	fi
 
 	# Temporary directories on ram disk.

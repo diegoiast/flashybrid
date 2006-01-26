@@ -27,5 +27,11 @@ FULL_CMDS="mount -o remount,rw /"
 # command.
 EMBED_CMDS="mount -o remount,ro /"
 
+# This controlles the maximum ammount of memory you want to allocate  
+# to the tmpfs/ram drive
+# This parameter is optional, and if you do not supply if, tmpfs will
+# occupy up to 50% of your available memory (ram+swap)
+FLASH_MAX=92m
+
 # You may also want to edit the other files in this directory:
 # ramtmp, ramstore, diskstore, and partial
