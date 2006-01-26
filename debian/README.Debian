@@ -1,4 +1,20 @@
-This deb contains some adaptations for the Rapidbox TS systems., hence 
+This deb contains some adaptations for the Rapidbox TS systems, hence 
 the change of the maintainer.
+
+If you want to enable this pacakge you only have to do three steps:
+
+1) create the directory /ram
+2) modify the value ENABLED in /etc/default/flashybrid
+3) reboot
+
+Step 3 is mandatory, because the init.d script modifies the FHS before most
+of the processes start running. If you don't trust us, you will potentially
+blank out some directories.
+
+If you want to modify the flashybrid configuration,
+restart the system with "init=/bin/sh", modify the needed config files
+and reboot the machine. Again, this is from our own experience, feel
+free to ignore us and blank out some parts of your disk.
+
 
  -- Tzafrir Cohen <tzafrir.cohen@xorcom.com>  Wed, 04 Jan 2006 13:09:10 +0200
