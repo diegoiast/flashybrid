@@ -1,7 +1,7 @@
 This deb contains some adaptations for the Rapidbox TS systems, hence 
 the change of the maintainer.
 
-If you want to enable this pacakge you only have to do three steps:
+If you want to enable this package you only have to do three steps:
 
 1) create the directory /ram
 2) modify the value ENABLED in /etc/default/flashybrid
