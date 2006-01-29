@@ -39,7 +39,7 @@ start)
 	
 	EXTRA_PARAMS=""
 	
-	if [ "xx$FLASH_MAX" != "xx"]; then
+	if [ "xx$FLASH_MAX" != "xx" ]; then
 	    EXTRA_PARAMS="size=$FLASH_MAX"
 	fi
 	
