@@ -40,7 +40,7 @@ start)
 	EXTRA_PARAMS=""
 	
 	if [ "xx$FLASH_MAX" != "xx" ]; then
-	    EXTRA_PARAMS="size=$FLASH_MAX"
+	    EXTRA_PARAMS=" -o size=$FLASH_MAX "
 	fi
 	
 	# Set up ram disk to hold variable data.
