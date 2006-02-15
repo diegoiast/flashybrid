@@ -10,7 +10,7 @@ Package: flashybrid
 Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}, rsync
 Description: automates use of a flash disk as the root filesystem
- Flashybrid is a system to help in setting up and managing hybid
+ Flashybrid is a system to help in setting up and managing hybrid
  flash/disk/ram based Debian systems which can run most of the time
  using only a small flash disk for their root filesystem and do a useful,
  but limited task (such as being a router, or a PDA, or a rescue system
