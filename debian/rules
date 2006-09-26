@@ -14,7 +14,6 @@ install: build
 	dh_testdir
 	dh_testroot
 	dh_clean -k
-#	dh_install debian/apt.conf etc/apt/apt.conf.d/10flashybrid
 	dh_install debian/apt.conf etc/apt/apt.conf.d/
 	mv debian/flashybrid/etc/apt/apt.conf.d/apt.conf debian/flashybrid/etc/apt/apt.conf.d/10flashybrid
 	$(MAKE) DEST=debian/flashybrid install
