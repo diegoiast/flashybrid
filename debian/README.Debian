@@ -1,6 +1,3 @@
-This deb contains some adaptations for the Rapidbox TS systems, hence 
-the change of the maintainer.
-
 If you want to enable this package you only have to do three steps:
 
 1) create the directory /ram
@@ -8,13 +5,10 @@ If you want to enable this package you only have to do three steps:
 3) reboot
 
 Step 3 is mandatory, because the init.d script modifies the FHS before most
-of the processes start running. If you don't trust us, you will potentially
-blank out some directories.
+of the processes start running. 
 
-If you want to modify the flashybrid configuration,
-restart the system with "init=/bin/sh", modify the needed config files
-and reboot the machine. Again, this is from our own experience, feel
-free to ignore us and blank out some parts of your disk.
+To modify any configuration, you need only to modify the configuration files, and reboot.
+Currently there is no alternative, since I have not found a way moving the open file handles
+from one file system (the tmpfs) into another (your real flash, HD). 
 
-
- -- Tzafrir Cohen <tzafrir.cohen@xorcom.com>  Wed, 04 Jan 2006 13:09:10 +0200
+ -- Diego Iastrubni <diego.iastrubni@xorcom.com>  Wed, 30 Aug 2006 09:00:00 +0200

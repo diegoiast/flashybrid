@@ -15,18 +15,7 @@ Description: automates use of a flash disk as the root filesystem
  using only a small flash disk for their root filesystem and do a useful,
  but limited task (such as being a router, or a PDA, or a rescue system
  on a USB keydrive). The flash can be as small as 32 mb, though 64 to 256
- mb is more comfortable.
- .
- When such a system needs to be upgraded or managed, or if you need a
- full-fledged Debian system temporarily, a flashybrid system converts
- quickly from an embedded system into a larger, normal Debian system.
- .
- Flashybrid supports systems with a supplimental hard disk that holds the
- parts of Debian that cannot fit on flash. It can also support larger
- flash-based systems with no supplimental hard disk. It makes it easy
- to mount a flash disk read-only, to avoid excessive writes to the flash,
- by storing the volatile parts in a ram disk and rsyncing them back to the
- flash at shutdown.
+ mb is more comfortable. 
  .
  To use this package, you will need a 2.4 or greater version of the linux
  kernel, with tmpfs support built in.

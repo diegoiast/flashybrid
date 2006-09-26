@@ -9,9 +9,11 @@
 # On shutdown, the contents of those directories on the ramdisk will be
 # rsynced back to the flash disk.
 #
-# Directories listed here that are not present will be silently ignored.
+# Directories listed here that are not present will be silently ignored. 
+# Do not put the trailing slash on directories!
 
 # Should always be in ram disk.
+/etc
 /root
 /var/run
 /var/log
@@ -22,16 +24,7 @@
 /var/spool/asterisk/outgoing
 /var/lib/exim4
 /var/lib/discover
-/etc
 
-#/var/lock
-#/var/lib/urandom
-#/var/lib/misc
-#/var/lib/php4
-#/etc/asterisk
-#/etc/op-panel
-#/etc/hotplug/.run
-#/etc/network/run
 
 # If you don't use devfs, you will want /dev in ram, since many things
 # need to modify it when the system is running.

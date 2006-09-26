@@ -1,3 +1,14 @@
+flashybrid (0.09.1) experimental; urgency=low
+  * New maintainer - me :)
+  * Closes bug #352932
+  * removed the full configuration and embeded configuration
+  * only ramtmp and ramdisk are supported right now
+  * init.d script checks for ability of RAMMOUNT directory before starting
+  * RAMSTORAGE configuration is stored on the ramdrive, which means you can modify the configuration, without messing your box
+    the new config will be applied on the next reboot
+  * the system will get mounted RW and synced automatically when you use apt-get  (not working yet)
+ -- Diego Iastrubni <diego.iastrubni@xorcom.com>  Mon, 6 Aug 2006 20:00:00 +0200
+
 flashybrid (0.004.7) unstable; urgency=low
   * added -o in the init.d script, the fix of last bug caused FH not to work
  -- Diego Iastrubni <diego.iastrubni@xorcom.com>  Sun, 9 Feb 2006 17:00:00 +0200

@@ -3,11 +3,11 @@
 # created on the ramdisk, mode 1777. Their contents will not be saved
 # across reboots. The equivilent directories on your flash will be
 # removed and replaced with symlinks to these directories.
-/tmp
-# This could go in ramstore if you prefer for its contents to persist
-# across reboots.
-/var/tmp
 
+# Do not put the trailing slash on directories!
+
+
+/tmp
 /var/lock
 /var/lib/alsa
 /var/lib/dhcp
@@ -16,3 +16,8 @@
 /var/lib/ntp
 /var/lib/urandom
 /var/lib/apache/mod-bandwidth/link
+
+# This could go in ramstore if you prefer for its contents to persist
+# across reboots.
+/var/tmp
+

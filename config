@@ -11,13 +11,6 @@ FLASHMOUNT=/
 # line to not set up a ram disk.
 RAMMOUNT=/ram
 
-# You can use a hard drive in combination with your flash disk, to hold
-# parts of the system that won't fit in flash. If you have such a disk,
-# this controls where it will be mounted, and /etc/fstab should be set up
-# to allow mounting of the disk to this directory. If you have no disk,
-# comment it out.
-#DISKMOUNT=/disk
-
 # Commands to run to enter full mode. The disk will be mounted before
 # this.
 FULL_CMDS="mount -o remount,rw /"
@@ -34,4 +27,4 @@ EMBED_CMDS="mount -o remount,ro /"
 FLASH_MAX=92m
 
 # You may also want to edit the other files in this directory:
-# ramtmp, ramstore, diskstore, and partial
+# ramtmp, ramstore

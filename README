@@ -7,17 +7,6 @@ but limited task (such as being a router, or a PDA, or a rescue system
 on a USB keydrive). The flash can be as small as 32 mb, though 64 to 256
 is more comfortable.
 
-When such a system needs to be upgraded or managed, or if you need a
-full-fledged Debian system temporarily, a flashybrid system converts
-quickly from an embedded system into a larger, normal Debian system.
-
-Flashybrid supports systems with a supplimental hard disk that holds the
-parts of Debian that cannot fit on flash. It can also support larger
-flash-based systems with no supplimental hard disk. It makes it easy to
-mount a flash disk read-only, to avoid excessive writes to the flash, by
-storing the writable parts in a ram disk and rsyncing them back to the
-flash at shutdown.
-
 Flashybrid needs rsync, and the 2.4 or greater linux kernel with tmpfs
 support built in.
 
@@ -43,17 +32,6 @@ writes to the flash which could wear it out. Directories such as /var/log
 which need to be writable are stored on a ram disk, and have their
 contents stored back to the flash on reboot.
 
-To turn the embedded system into a full Debian system, a hard disk is
-optionally mounted, which contains the bits of the Debian system that
-didn't fit on the flash.
-
-Some directories like /usr/bin may be too large to fit on a flash, and yet
-your system might need a few files from the directories on the flash.
-Flashybrid includes support for such directories; a directory is set up on
-the flash containing parts of the directory, and is bind mounted into
-place. When the hard disk is mounted, the bind mount is changed to mount
-the complete directory into place.
-
 Flashybrid integrates with apt, so when you run apt it makes sure the
 full system is available, and after apt runs it updates the
 abovementioned directories.
@@ -77,3 +55,11 @@ with a embedded Debian system with only 32 mb of flash. Then I bought a
 much larger 256 mb flash, and armed with a year's experience and less
 I rewrote flashybrid to make it easier to install, more robust, and finally
 released it to the public in fall 2003.
+
+Prolog:
+This version of flashybrid is modified a lot from what Joey released as 0.02. 
+I felt that many parts of the system were not really maintained, and eventually I dropped
+them. The new version is way smaller, and hopefully more roboust. It's activly maintained, 
+which IMHO is much more important.
+
+Diego Iastrubni <diego.iastrubni@xorcom.com>

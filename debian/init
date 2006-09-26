@@ -1,4 +1,5 @@
 #!/bin/sh
+
 # Set up/shutdown the flashybrid system, including the ramdisk and partial
 # directory bind mounts. This needs to run at the part of system bootup that
 # mounts all the disks. It should also run at shutdown right before
@@ -29,26 +30,28 @@ start)
 		exit
 	fi
 	
-	if [ "$VERBOSE" != yes ]; then
-		printf "Setting up flashybrid system..."
+	if [ ! -d "$RAMMOUNT" ] ; then
+		echo "Error, RAMMOUNT directory is not found ($RAMMOUNT)"
+		exit 1
 	fi
-
-	# Set up partial directories and so on, make sure disk is
-	# unmounted.	
-	fh-embed >/dev/null
 	
+	if [ "$VERBOSE" != yes ]; then
+		echo -n "Setting up flashybrid system..."
+	fi
+		
 	EXTRA_PARAMS=""
 	
 	if [ "xx$FLASH_MAX" != "xx" ]; then
 	    EXTRA_PARAMS=" -o size=$FLASH_MAX "
 	fi
-	
+			
 	# Set up ram disk to hold variable data.
 	if ! is_mounted $RAMMOUNT; then
 		mount tmpfs -t tmpfs $RAMMOUNT $EXTRA_PARAMS
 	fi
 
 	# Temporary directories on ram disk.
+	cp $CONFDIR/ramtmp $RAMMOUNT/.fh-config-ramtmp
 	for dir in $(grep -v '^#' $CONFDIR/ramtmp); do
 		if [ -d $dir ]; then
         		mkdir -p -m 1777 $RAMMOUNT/$dir
@@ -57,14 +60,18 @@ start)
 			fi
 			mount --bind $RAMMOUNT/$dir $dir
 		fi
-		
 	done
 
-	# Copy data from flash to ram disk for these directories.
+	# when syncing we will use this configuration for restoring,
+	# as the user may modify the configuration on the disk, and completely
+	# mess up the system, eventually making his machine unusable
+	cp $CONFDIR/ramstore $RAMMOUNT/.fh-config-ramstore
+	
+	# Copy data from flash to ram disk for these directories
 	for dir in $(grep -v '^#' $CONFDIR/ramstore); do
 		# Skip dirs that are not present.
 		if [ -d $dir ]; then
-			if [ "$VERBOSE" == yes ]; then
+			if [ "$VERBOSE" = yes ]; then
 			    echo -n "Syncrhonizing RAM - $dir"
 			fi
 			
@@ -72,9 +79,11 @@ start)
 			if is_mounted $dir; then
 				umount $dir
 			fi
+			
 			if is_mounted $ramdir.flash; then
 				umount $ramdir.flash
 			fi
+			
 			if [ ! -d $ramdir ]; then
 				mkdir -p ${ramdir%/*} # dirname
 			        cp -a $dir $ramdir
@@ -82,13 +91,18 @@ start)
 			mkdir -p $ramdir.flash
 			mount --bind $dir $ramdir.flash
 			mount --bind $ramdir $dir
-			echo
+
+			if [ "$VERBOSE" = yes ]; then
+				echo "."
+			fi
 		fi
 	done
 
-	echo "done."
-	mount -o remount,ro /
-;;
+	if [ "$VERBOSE" != yes ]; then
+		echo "done."
+	fi
+	mountro
+	;;
 
 stop)
 	if [ "$ENABLED" != yes ]; then
@@ -96,54 +110,21 @@ stop)
 		exit
 	fi
 	
-	if [ "$VERBOSE" != yes ]; then
-		printf "Shutting down flashybrid system..."
-	fi
-	
-	# Copy data to flash.
-	# Remount the flash read-write so the copies to it will work.
-	mount -o remount,rw /
-	for dir in $(grep -v '^#' $CONFDIR/ramstore); do
-		if [ -d $RAMMOUNT/$dir ] && [ -d $RAMMOUNT/$dir.flash ]; then
-			if [ "$VERBOSE" == yes ]; then
-			    echo -n "Synchronizing flash - $dir"
-			fi
-			
-			# rsync is used to avoid churning the flash
-			# unnecessarily. The trailing slashes are very
-			# important..
-			rsync --delete -a $RAMMOUNT/$dir/ $RAMMOUNT/$dir.flash/
-			echo
-		fi
-	done
+	fh-sync
+	mountrw
+	;;
 
-	for dir in $(grep -v '^#' $CONFDIR/ramtmp); do
-		if is_mounted $dir; then
-			umount $dir
-		fi
-	done
-	
-	for dir in $(grep -v '^#' $CONFDIR/ramstore); do
-		ramdir=$RAMMOUNT$dir
-		if is_mounted $ramdir.flash; then
-			umount $ramdir.flash
-		fi
-		if is_mounted $dir; then
-			umount $dir
-		fi
-	done
-	
-	if is_mounted $RAMMOUNT; then
-		umount $RAMMOUNT
-	fi	
-	
-	echo "done."
-;;
+restart)
+	echo "This target is available only for compability, and usually will fail to work"
+	echo "If you really want to restart this service please try 'force-reload'"
+	echo 
+	echo "Gracefully exiting"
+	;;
 
-restart|force-reload)
+force-reload)
 	$0 stop
 	$0 start
-;;
+	;;
 
 *)
 	echo "Usage: $0 {start|stop|restart|force-reload}"

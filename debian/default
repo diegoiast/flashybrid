@@ -8,4 +8,3 @@ ENABLED=no
 
 # Wheter to display a message before a directory is synchornized or not.
 VERBOSE=yes
-

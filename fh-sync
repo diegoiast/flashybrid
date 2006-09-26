@@ -2,40 +2,47 @@
 
 #
 # Synchronize the ram storage of flash hybrid with the drive.
-# Loolsy based on the init scripts of flash-hybrid
+# Loolsy based on the init scripts of flash-hybrid 0.0.2. GPL.
 #
 # - Diego Iastrubni <diego.iastrubni@xorcom.com>
 
 
 CONFDIR=/etc/flashybrid
 
-if [ -e $CONFDIR/config ]; then
-	. $CONFDIR/config
-else
-	# we ignore quietly the setups in which flash hybrid is not installed
-	exit
-fi
+is_mounted () 
+{
+	grep -q " $1 " /proc/mounts
+}
 
 ENABLED=no
 if [ -e /etc/default/flashybrid ]; then
 	. /etc/default/flashybrid
 fi
 
+#if [ "$ENABLED" != yes ]; then
+	# we ignore quietly the setups in which flash hybrid is not configured
+# 	echo "Not syncing flashybrid system: disabled."
+#	exit
+#fi
+
+if [ -e $CONFDIR/config ]; then
+	. $CONFDIR/config
+else
+	# we ignore quietly the setups in which flash hybrid is not configured
+	exit
+fi
+
+#if ! grep -q "$RAMMOUNT" /proc/mounts; then
+if ! is_mounted "$RAMMOUNT" ; then
+    echo "Flashybrid is not started. Ignoring"
+    exit
+fi
+
 if [ -z "$RAMMOUNT" ]; then
 	exit 0
 fi
 
-is_mounted () {
-	grep -q " $1 " /proc/mounts
-}
-
-	
-if [ "$ENABLED" != yes ]; then
-	echo "Not shutting down flashybrid system: disabled."
-	exit
-fi
-
-printf "Syncing flashybrid system..."
+echo -n "Syncing flashybrid system..."
 
 # if verbose, make a new line feed, 
 # this way the first message will get a new line
@@ -45,20 +52,32 @@ fi
 
 # Copy data to flash.
 # Remount the flash read-write so the copies to it will work.
-mount -o remount,rw /
-for dir in $(grep -v '^#' $CONFDIR/ramstore); do
-	if [ -d $RAMMOUNT/$dir ] && [ -d $RAMMOUNT/$dir.flash ]
-	then
+mountrw
+RAMSTORAGE=$RAMMOUNT/.fh-config-ramstore
+
+if [ ! -f $RAMSTORAGE ]; then
+	echo 'Warning, the original configuration was not saved or lost, using the configuration'
+	RAMSTORAGE=$CONFDIR/ramstore
+fi
+
+for dir in $(grep -v '^#' $RAMSTORAGE); do
+	if [ -d $RAMMOUNT/$dir ] && [ -d $RAMMOUNT/$dir.flash ]; then
 		if [ "$VERBOSE" = "yes" ]; then
-        		echo "Synchronizing $dir"
+        		echo -n "Synchronizing $dir"
 		fi
 		
 		# rsync is used to avoid churning the flash
 		# unnecessarily. The trailing slashes are very
 		# important..
 		rsync --delete -a $RAMMOUNT/$dir/ $RAMMOUNT/$dir.flash/
+
+		if [ "$VERBOSE" = "yes" ]; then
+        		echo "."
+		fi
 	fi
 done
-sync
 
-mount -o remount,ro /
+echo "done."
+
+sync
+mountro
