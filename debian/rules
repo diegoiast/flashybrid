@@ -35,9 +35,14 @@ binary-indep: build install
 	dh_compress
 	dh_fixperms
 	dh_installdeb
+	dh_installdebconf
 	dh_gencontrol
 	dh_md5sums
 	dh_builddeb
+	
+	mkdir -p $(CURDIR)/debian/flashybrid/usr/share/lintian/overrides/
+	cp debian/flashybrid.lintian  $(CURDIR)/debian/flashybrid/usr/share/lintian/overrides/flashybrid
+			  
 
 binary: binary-indep binary-arch
 .PHONY: build clean binary-indep binary-arch binary install
