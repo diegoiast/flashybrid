@@ -7,8 +7,17 @@ If you want to enable this package you only have to do three steps:
 Step 3 is mandatory, because the init.d script modifies the FHS before most
 of the processes start running. 
 
-To modify any configuration, you need only to modify the configuration files, and reboot.
-Currently there is no alternative, since I have not found a way moving the open file handles
-from one file system (the tmpfs) into another (your real flash, HD). 
+To modify any configuration, you need only to modify the configuration files, 
+and reboot.Currently there is no alternative, since I have not found a way 
+moving the open file handles from one file system (the tmpfs) into another 
+(your real flash, HD). 
 
- -- Diego Iastrubni <diego.iastrubni@xorcom.com>  Wed, 30 Aug 2006 09:00:00 +0200
+
+If you want to remove this package, you should first disable it,
+boot the machine, and ONLY WHEN THE MACHINE HAS BEEN REBOOTED WITHOUT FLAHYBRID
+RUNNING YOU CAN REMOVE THE PACKAGE ITSELF. If you do not to do it this way,
+you can potentially loose data (things like configuration files in /etc/ will 
+not get synced to the real drive, stay only in the tmpfs and lost on reboot.
+
+
+ -- Diego Iastrubni <diego.iastrubni@xorcom.com>  Wed, 3 Oct 2006 17:00:00 +0200

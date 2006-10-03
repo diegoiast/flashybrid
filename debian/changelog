@@ -1,13 +1,24 @@
-flashybrid (0.09.1) experimental; urgency=low
+flashybrid (0.010) experimental; urgency=low
+
   * New maintainer - me :)
-  * Closes bug #352932
-  * removed the full configuration and embeded configuration
-  * only ramtmp and ramdisk are supported right now
+  * Added option to remove verbosity level in /etc/default/flashybrid 
+    (closes bug #352932)
+  * Added option option to specify maximum ammount of memory to use
+    in /etc/default/flashybrid (closes bug #352932)
+  * Modified default configuration to match Sarge and Etch software   
+    (closes bug #352932)
+  * Removed the full configuration and embeded  configuration
+  * Only ramtmp and ramdisk are supported right now, all other configurations
+    obsoleted
   * init.d script checks for ability of RAMMOUNT directory before starting
-  * RAMSTORAGE configuration is stored on the ramdrive, which means you can modify the configuration, without messing your box
-    the new config will be applied on the next reboot
-  * the system will get mounted RW and synced automatically when you use apt-get  (not working yet)
+  * RAMSTORAGE configuration is stored on the ramdrive, which means you can 
+    modify the configuration, without messing your box the new config will be 
+    applied on the next reboot
+  * Added a debconf warning, as this package can break systems if not handled
+    carefly
+      
  -- Diego Iastrubni <diego.iastrubni@xorcom.com>  Mon, 6 Aug 2006 20:00:00 +0200
+
 
 flashybrid (0.004.7) unstable; urgency=low
   * added -o in the init.d script, the fix of last bug caused FH not to work

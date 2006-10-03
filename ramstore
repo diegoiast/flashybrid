@@ -15,15 +15,15 @@
 # Should always be in ram disk.
 /etc
 /root
-/var/run
-/var/log
 /var/lib/op-panel
 /var/lib/logrotate
 /var/lib/mysql
 /var/lib/asterisk
-/var/spool/asterisk/outgoing
 /var/lib/exim4
 /var/lib/discover
+/var/log
+/var/run
+/var/spool/asterisk
 
 
 # If you don't use devfs, you will want /dev in ram, since many things

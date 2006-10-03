@@ -1,7 +1,8 @@
 #!/bin/sh
 
 #
-# remount the system in RO mode
+# remount the system in RO mode. 
+# Licensed under the terms GPL V2.
 #
 # - Diego Iastrubni <diego.iastrubni@xorcom.com>
 

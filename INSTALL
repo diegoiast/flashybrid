@@ -1,3 +1,16 @@
+This file is quite outdated, and things have changed since Joey wrote it 
+back it ... way back... we (Xorcom - http://www.xorcom.com) are using this
+package in several products and are quite happy. The recommended reading is
+README.debian now, but I am leaving this one here for the record, since some
+of the things written here, are still valid in V0.010.
+
+Please don't ask Joey about this package, but instead direct any questions
+to me (I am the maintainer now).
+
+- Diego Iastrubni <diego.iastrubni@xorcom.com>
+
+
+
 This package has only been installed twice, so this document may be
 incomplete, and installation of a flashybrid system necessary involves some
 manual work. If you are unfamiliar with the system, read the README and

@@ -1,6 +1,6 @@
 What:
 
-Flashybrid is a system to help in setting up and managing hybid
+Flashybrid is a system to help in setting up and managing hybrid
 flash/disk/ram based Debian systems which can run most of the time
 using only a small flash disk for their root filesystem and do a useful,
 but limited task (such as being a router, or a PDA, or a rescue system
@@ -34,7 +34,7 @@ contents stored back to the flash on reboot.
 
 Flashybrid integrates with apt, so when you run apt it makes sure the
 full system is available, and after apt runs it updates the
-abovementioned directories.
+above mentioned directories.
 
 Flashybrid is configured by files in /etc/flashybrid. The fh-full and
 fh-embed commands make it easy to transition a system between the two
@@ -58,8 +58,8 @@ released it to the public in fall 2003.
 
 Prolog:
 This version of flashybrid is modified a lot from what Joey released as 0.02. 
-I felt that many parts of the system were not really maintained, and eventually I dropped
-them. The new version is way smaller, and hopefully more roboust. It's activly maintained, 
-which IMHO is much more important.
+I felt that many parts of the system were not really maintained, and eventually
+I dropped them. The new version is way smaller, and hopefully more robust. It's
+actively maintained, which IMHO is much more important.
 
 Diego Iastrubni <diego.iastrubni@xorcom.com>
