@@ -4,4 +4,3 @@
 
 db_input critical flashybrid/remove  || true
 db_go
-
