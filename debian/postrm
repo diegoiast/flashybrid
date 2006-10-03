@@ -24,6 +24,7 @@ set -e
 
 case "$1" in
 	purge)
+		db_purge
 	;;
 	
 	remove)

@@ -1,5 +1,7 @@
 #!/usr/bin/make -f
 
+#export DH_VERBOSE=1
+
 build:
 	dh_testdir
 	$(MAKE)
@@ -27,22 +29,22 @@ binary-indep: build install
 	dh_testroot
 	dh_installchangelogs
 	dh_installdocs README INSTALL TODO
-	# It's not a good idea to start flashybrid on install or upgrade.
-	# It's an rcS script..
+#	It's not a good idea to start flashybrid on install or upgrade.
+#	It's an rcS script..
 	dh_installinit --no-start -- start 40 S . start 39 6 .
 	dh_installman
 	dh_link
 	dh_compress
-	dh_fixperms
-	dh_installdeb
 	dh_installdebconf
+	dh_installdeb
+	mkdir -p debian/flashybrid/usr/share/lintian/overrides/
+	cp debian/lintian debian/flashybrid/usr/share/lintian/overrides/flashybrid
+	dh_fixperms
+	
 	dh_gencontrol
 	dh_md5sums
 	dh_builddeb
-	
-	mkdir -p $(CURDIR)/debian/flashybrid/usr/share/lintian/overrides/
-	cp debian/flashybrid.lintian  $(CURDIR)/debian/flashybrid/usr/share/lintian/overrides/flashybrid
-			  
+		
 
 binary: binary-indep binary-arch
 .PHONY: build clean binary-indep binary-arch binary install
