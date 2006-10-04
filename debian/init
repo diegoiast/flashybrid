@@ -5,6 +5,10 @@
 # mounts all the disks. It should also run at shutdown right before
 # filesystems are unmounted.
 
+# Licensed under the terms of GPL v2
+#  Diego Iastrubni <diego.iastrubni@xorcom.com> 2006
+#  Joey Hess <joeyh@debian.org> 2002-2006
+
 CONFDIR=/etc/flashybrid
 if [ -e $CONFDIR/config ]; then
 	. $CONFDIR/config

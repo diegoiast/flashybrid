@@ -2,7 +2,7 @@
 
 #
 # Synchronize the ram storage of flash hybrid with the drive.
-# Loosely based on the init scripts of flashybrid 0.002. GPL.
+# Loosely based on the init scripts of flashybrid 0.002. GPL v2.
 #
 # - Diego Iastrubni <diego.iastrubni@xorcom.com>
 
