@@ -3,7 +3,7 @@ Section: admin
 Priority: extra
 Maintainer: Diego Iastrubni <diego.iastrubni@xorcom.com> 
 Uploaders: Tzafrir Cohen <tzafrir.cohen@xorcom.com>, Lior Kaplan <kaplan@debian.org>
-Build-Depends: debhelper (>= 4.1.17)
+Build-Depends: debhelper (>= 4.1.17), po-debconf
 Standards-Version: 3.7.2
 
 Package: flashybrid

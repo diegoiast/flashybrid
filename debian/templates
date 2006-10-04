@@ -1,6 +1,6 @@
 Template: flashybrid/remove
 Type: note
-Description: Note removal of flashybrid package
+_Description: Note removal of flashybrid package
  Please be warned, this package  changes the way your system behaves in a really 
  intrusive way. This package is not enabled by default so it should not make any
  problems by just installing it. If you want to enable it, please read the 
