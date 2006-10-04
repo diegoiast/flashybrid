@@ -6,5 +6,5 @@
 # system, before turning this on.
 ENABLED=no
 
-# Wheter to display a message before a directory is synchornized or not.
+# Whether to display a message before a directory is synchronized or not.
 VERBOSE=yes

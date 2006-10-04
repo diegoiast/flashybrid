@@ -115,7 +115,7 @@ stop)
 	;;
 
 restart)
-	echo "This target is available only for compability, and usually will fail to work"
+	echo "This target is available only for compatibility, and usually will fail to work"
 	echo "If you really want to restart this service please try 'force-reload'"
 	echo 
 	echo "Gracefully exiting"

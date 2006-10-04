@@ -8,7 +8,7 @@ flashybrid: package-contains-upstream-install-documentation
 flashybrid: init.d-script-missing-lsb-section
 
 # its ok if this package does not contain i18n
-# it should be installed in embeded devices, every
+# it should be installed in embedded devices, every
 # bit is sacred. we can decide not to put the i18n data
 flashybrid source: not-using-po-debconf
     

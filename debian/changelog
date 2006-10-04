@@ -1,7 +1,7 @@
 flashybrid (0.11) experimental; urgency=low
 
-  * New maintainer
-  * Merge changes done in Xorcom Rapid distritution into Debian (Closes: #352932)
+  * New maintainer + new uploader
+  * Merge changes done in Xorcom Rapid distribution into Debian (Closes: #352932)
   * /etc/default/flashybrid:
     - Added option to remove verbosity level 
     - Added option option to specify maximum amount of memory to use
