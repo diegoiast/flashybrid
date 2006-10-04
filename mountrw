@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #
-# remount the system in RW mode. 
+# Remount the system in RW mode. 
 # Licensed under the terms of GPL V2
 #
 # - Diego Iastrubni <diego.iastrubni@xorcom.com>

@@ -1,5 +1,6 @@
-* fh-update will not remove files from partial dirs if the files are
-  removed from the partial file. To fix I'll need to store state in /var
-* Need to stop the init script on halt too -- rc0 I think.
 * Need cron.daily/weekly/monthly 0 and 99 scripts that mount and unmount
-  the disk (optionally, where needed).
+  the disk (optionally, where needed). (is this needed...? this can kill 
+  flash memories...)
+* make the apt-get confi files work (this will make the apt-get command 
+  work also in RO mode)  
+  
