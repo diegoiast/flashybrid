@@ -1,4 +1,4 @@
-flashybrid (0.11) experimental; urgency=low
+flashybrid (0.12) experimental; urgency=low
 
   * New maintainer + new uploader
   * Merge changes done in Xorcom Rapid distribution into Debian (Closes: #352932)

@@ -10,6 +10,7 @@ clean:
 	dh_testdir
 	dh_testroot
 	-$(MAKE) clean
+	debconf-updatepo
 	dh_clean
 
 install: build
@@ -28,7 +29,7 @@ binary-indep: build install
 	dh_testdir
 	dh_testroot
 	dh_installchangelogs
-	dh_installdocs README INSTALL TODO
+	dh_installdocs README README.old TODO
 #	It's not a good idea to start flashybrid on install or upgrade.
 #	It's an rcS script..
 	dh_installinit --no-start -- start 40 S . start 39 6 .
@@ -38,7 +39,7 @@ binary-indep: build install
 	dh_installdebconf
 	dh_installdeb
 	mkdir -p debian/flashybrid/usr/share/lintian/overrides/
-	cp debian/lintian debian/flashybrid/usr/share/lintian/overrides/flashybrid
+#	cp debian/lintian debian/flashybrid/usr/share/lintian/overrides/flashybrid
 	dh_fixperms
 	
 	dh_gencontrol

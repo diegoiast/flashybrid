@@ -1,14 +1,22 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#    Translators, if you are not familiar with the PO format, gettext
+#    documentation is worth reading, especially sections dedicated to
+#    this format, e.g. by running:
+#         info -n '(gettext)PO Files'
+#         info -n '(gettext)Header Entry'
+#
+#    Some information specific to po-debconf are available at
+#            /usr/share/doc/po-debconf/README-trans
+#         or http://www.debian.org/intl/l10n/po-debconf/README-trans
+#
+#    Developers do not need to manually edit POT or PO files.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: diego.iastrubni@xorcom.com\n"
-"POT-Creation-Date: 2006-10-04 09:35+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-10-08 16:03+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,13 +26,13 @@ msgstr ""
 
 #. Type: note
 #. Description
-#: ../../debian/templates:1001
+#: ../templates:3
 msgid "Note removal of flashybrid package"
 msgstr ""
 
 #. Type: note
 #. Description
-#: ../../debian/templates:1001
+#: ../templates:3
 msgid ""
 "Please be warned, this package  changes the way your system behaves in a "
 "really  intrusive way. This package is not enabled by default so it should "
@@ -34,7 +42,7 @@ msgstr ""
 
 #. Type: note
 #. Description
-#: ../../debian/templates:1001
+#: ../templates:3
 msgid ""
 "If you want to remove this package, you should first disable it, boot the "
 "machine, and ONLY WHEN THE MACHINE HAS BEEN REBOOTED WITHOUT FLAHYBRID "
@@ -46,7 +54,7 @@ msgstr ""
 
 #. Type: note
 #. Description
-#: ../../debian/templates:1001
+#: ../templates:3
 msgid ""
 "Please read the Debian documentation found in /usr/share/doc/flashybrid/ "
 "specially README.debian"
