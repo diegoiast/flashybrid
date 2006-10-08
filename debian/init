@@ -9,6 +9,24 @@
 #  Diego Iastrubni <diego.iastrubni@xorcom.com> 2006
 #  Joey Hess <joeyh@debian.org> 2002-2006
 
+
+### BEGIN INIT INFO
+# Provides:          flashybrid
+# Required-Start:    $all
+# Required-Stop:     $syslog
+# Should-Start:      $local_fs
+# Should-Stop:       $local_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: automates use of a flash disk as the root filesystem
+# Description:       Flashybrid is a system to help in setting up and managing hybrid
+#                    flash/disk/ram based Debian systems which can run most of the time
+#                    using only a small flash disk for their root filesystem and do a useful,
+#                    but limited task (such as being a router, or a PDA, or a rescue system
+#                    on a USB keydrive). The flash can be as small as 32 mb, though 64 to 256
+#                    mb is more comfortable.
+### END INIT INFO
+
 CONFDIR=/etc/flashybrid
 if [ -e $CONFDIR/config ]; then
 	. $CONFDIR/config
