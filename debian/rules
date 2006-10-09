@@ -38,8 +38,6 @@ binary-indep: build install
 	dh_compress
 	dh_installdebconf
 	dh_installdeb
-	mkdir -p debian/flashybrid/usr/share/lintian/overrides/
-#	cp debian/lintian debian/flashybrid/usr/share/lintian/overrides/flashybrid
 	dh_fixperms
 	
 	dh_gencontrol

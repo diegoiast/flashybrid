@@ -1,43 +1,51 @@
-flashybrid (0.12) experimental; urgency=low
+flashybrid (0.13) unstable; urgency=low
 
-  * New maintainer + new uploader
-  * Merge changes done in Xorcom Rapid distribution into Debian (Closes: #352932)
+  * New maintainers
+  * Merge changes from Xorcom Rapid distribution into Debian (Closes: #352932)
+    - Insert changelog items from Rapid dale (Xorcom's current stable version).
+    - It looks quite weird, do due conflicts in version numbering.
   * /etc/default/flashybrid:
-    - Added option to remove verbosity level 
-    - Added option option to specify maximum amount of memory to use
+    - Added option to remove verbosity level.
+    - Added option option to specify maximum amount of memory to use.
     - Modified configuration to match Sarge and Etch software.
   * Removed the full configuration and embedded configuration.
   * Only ramtmp and ramdisk are supported right now, all other configurations
     are obsolete.
   * init.d script checks for ability of RAMMOUNT directory before starting.
-  * RAMSTORAGE configuration is stored on the ramdrive, which means you can 
-    modify the configuration, without messing your box. The new config will be
-    applied on the next reboot
+  * RAMSTORAGE configuration is stored on the ramdrive, which means you can
+    modify the configuration, without messing your box. The new configurations
+    will be applied on the next reboot.
   * Added a debconf warning, as this package can break systems if not handled
-    carefully,
+    carefully.
 
- -- Diego Iastrubni <diego.iastrubni@xorcom.com>  Mon, 6 Aug 2006 20:00:00 +0200
+ -- Diego Iastrubni <diego.iastrubni@xorcom.com>  Sun,  8 Oct 2006 23:07:20 +0200
 
-flashybrid (0.004.7) unstable; urgency=low
+flashybrid (0.004) unstable; urgency=low
+
+  * Rebuilt with fixed debhelper to fix exit 0 bug in maint scripts.
+
+ -- Joey Hess <joeyh@debian.org>  Wed, 22 Mar 2006 19:48:41 -0500
+
+flashybrid (0.004.7) dale; urgency=low
 
   * added -o in the init.d script, the fix of last bug caused FH not to work
 
  -- Diego Iastrubni <diego.iastrubni@xorcom.com>  Sun, 9 Feb 2006 17:00:00 +0200
 
-flashybrid (0.004.6) unstable; urgency=low
+flashybrid (0.004.6) rapid dale; urgency=low
 
   * Fixed  typo in init.d (missing space after an if)
 
  -- Diego Iastrubni <diego.iastrubni@xorcom.com>  Sun, 29 Jan 2006 12:00:00 +0200
 
-flashybrid (0.004.5) unstable; urgency=low
+flashybrid (0.004.5) rapid dale; urgency=low
 
   * Added /ram into the default installation
   * New optional switch in config FLASH_MAX
 
  -- Diego Iastrubni <diego.iastrubni@xorcom.com>  Sun, 26 Jan 2006 17:00:00 +0200
 
-flashybrid (0.004.4) unstable; urgency=low
+flashybrid (0.004.4) dale; urgency=low
 
   * Updated some ramtmp configuration (new directories)
   * Fixed the init.d script messages (not it says what's been synced)
@@ -45,14 +53,14 @@ flashybrid (0.004.4) unstable; urgency=low
 
  -- Diego Iastrubni <diego.iastrubni@xorcom.com>  Sun, 8 Jan 2006 15:00:00 +0200
 
-flashybrid (0.004.3) unstable; urgency=low
+flashybrid (0.004.3) dale; urgency=low
 
   * updated Uploaders in control file
   * removed the sudo command on fh-sync (oops)
 
  -- Diego Iastrubni <diego.iastrubni@xorcom.com>  Thu, 2 Jan 2006 12:00:00 +0200
 
-flashybrid (0.004.2) unstable; urgency=low
+flashybrid (0.004.2) dale; urgency=low
 
   * New mountro and mountrw scripts
   * New flashybrid-sync script
@@ -62,12 +70,6 @@ flashybrid (0.004.2) unstable; urgency=low
   * Updated Debian standards version
 
  -- Diego Iastrubni <diego.iastrubni@xorcom.com>  Thu, 9 Sep 2005 17:00:00 +0200
-
-flashybrid (0.004) unstable; urgency=low
-
-  * Rebuilt with fixed debhelper to fix exit 0 bug in maint scripts.
-
- -- Joey Hess <joeyh@debian.org>  Wed, 22 Mar 2006 19:48:41 -0500
 
 flashybrid (0.003) unstable; urgency=low
 

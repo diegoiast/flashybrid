@@ -1,9 +1,9 @@
 Source: flashybrid
 Section: admin
 Priority: extra
-Maintainer: Diego Iastrubni <diego.iastrubni@xorcom.com> 
-Uploaders: Tzafrir Cohen <tzafrir.cohen@xorcom.com>, Lior Kaplan <kaplan@debian.org>
-Build-Depends: debhelper (>= 4.2.32),  po-debconf
+Maintainer: Diego Iastrubni <diego.iastrubni@xorcom.com>
+Uploaders: Lior Kaplan <kaplan@debian.org>, Tzafrir Cohen <tzafrir.cohen@xorcom.com>
+Build-Depends: debhelper (>= 4.2.32), po-debconf
 Standards-Version: 3.7.2
 
 Package: flashybrid
@@ -19,3 +19,5 @@ Description: automates use of a flash disk as the root filesystem
  .
  To use this package, you will need a 2.4 or greater version of the linux
  kernel, with tmpfs support built in.
+ .
+ Homepage: http://www.xorcom.com/rapid/
