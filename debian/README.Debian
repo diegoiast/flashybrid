@@ -19,5 +19,9 @@ RUNNING YOU CAN REMOVE THE PACKAGE ITSELF. If you do not to do it this way,
 you can potentially loose data (things like configuration files in /etc/ will 
 not get synced to the real drive, stay only in the tmpfs and lost on reboot.
 
+You cannot restart this "service", since some file descriptors may open on the
+tmpfs. The reload and restart actions are NULL, and I only put them to keep 
+lintain happy about LSB. 
 
- -- Diego Iastrubni <diego.iastrubni@xorcom.com>  Wed, 3 Oct 2006 17:00:00 +0200
+
+ -- Diego Iastrubni <diego.iastrubni@xorcom.com>  Sun, 29 Oct 2006 17:00:00 +0200

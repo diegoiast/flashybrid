@@ -1,6 +1,6 @@
 * Need cron.daily/weekly/monthly 0 and 99 scripts that mount and unmount
   the disk (optionally, where needed). (is this needed...? this can kill 
   flash memories...)
-* make the apt-get confi files work (this will make the apt-get command 
+* make the apt-get config files work (this will make the apt-get command 
   work also in RO mode)  
   

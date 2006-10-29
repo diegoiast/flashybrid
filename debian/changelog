@@ -1,3 +1,15 @@
+flashybrid (0.13.1) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+  * Warning message is not longer displayed on updates, if the service is
+    up and running.
+  * default configuration file is not a part of this package, to ease
+    the upgrade of packages
+  * French translations from "Jean-Luc Coulon (f5ibh)" 
+    <jean-luc.coulon@wanadoo.fr>, closes #394732
+
+ -- Diego Iastrubni<diego.iastrubni@xorcom.com>  Sun, 29 Oct 2006 12:31:11 +0200
+
 flashybrid (0.13) unstable; urgency=low
 
   * New maintainers

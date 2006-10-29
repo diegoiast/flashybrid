@@ -1,5 +1,40 @@
 #!/bin/sh
 
+ENABLED=no
+
+if [ -e /etc/default/flashybrid ]; then
+        . /etc/default/flashybrid
+else
+
+        # create a new default file "manually"
+        # now the file is not part of the package
+        # and when users modify it, they will not be
+        # asked stupid questions.
+
+echo > /etc/default/flashybrid <<EOF
+# This file controls the flashybrid init script.
+
+# Whether to start flashybrid on boot, and shut it down on shutdown.
+# This has the potential to break your system if it is turned on, so
+# make sure you understand flashybrid, and have configured it for your
+# system, before turning this on.
+ENABLED=no
+
+# Whether to display a message before a directory is synchronized or not.
+VERBOSE=yes
+EOF
+
+fi
+
+if [ "$ENABLED" = yes ]; then
+        # on systems with flashybrid installed and setup
+        # we assume that the user already saw this message
+        # and knows how to deal with it.
+        # this means that users of this package will not
+        # see these warnings on upgrades.
+        exit
+fi
+
 . /usr/share/debconf/confmodule
 
 db_input critical flashybrid/remove  || true
