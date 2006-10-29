@@ -1,4 +1,4 @@
-flashybrid (0.13.1) UNRELEASED; urgency=low
+flashybrid (0.13.2) UNRELEASED; urgency=low
 
   * NOT RELEASED YET
   * Warning message is not longer displayed on updates, if the service is
