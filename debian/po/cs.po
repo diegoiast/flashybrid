@@ -1,0 +1,66 @@
+# translation of flashybrid_0.13_cs-utf8.po to czech
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Jakub Kasparec <mr.k@centrum.cz>, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: flashybrid_0.13_cs-utf8\n"
+"Report-Msgid-Bugs-To: diego.iastrubni@xorcom.com\n"
+"POT-Creation-Date: 2006-12-10 10:08+0200\n"
+"PO-Revision-Date: 2006-11-05 04:29+0100\n"
+"Last-Translator: Jakub Kasparec <mr.k@centrum.cz>\n"
+"Language-Team: czech <debian-l10n-czech@lists.debian.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#. Type: note
+#. Description
+#: ../templates:1001
+#, fuzzy
+msgid "Note about removal of flashybrid package"
+msgstr "Pozor při odebíráni balíku flashybrid"
+
+#. Type: note
+#. Description
+#: ../templates:1001
+msgid ""
+"Please be warned, this package  changes the way your system behaves in a "
+"really  intrusive way. This package is not enabled by default so it should "
+"not make any problems by just installing it. If you want to enable it, "
+"please read the  documentation."
+msgstr ""
+"Buďte prosím opatrní, tento balík mění poměrně násilně chování vašeho "
+"systému. Jako výchozí, tento balík není aktivní. Jeho pouhé nainstalování by "
+"tedy nemělo způsobit problémy. Jestliže jej chcete aktivovat, přečtěte si "
+"prosím dokumentaci."
+
+#. Type: note
+#. Description
+#: ../templates:1001
+msgid ""
+"If you want to remove this package, you should first disable it, boot the "
+"machine, and ONLY WHEN THE MACHINE HAS BEEN REBOOTED WITHOUT FLAHYBRID "
+"RUNNING YOU CAN REMOVE THE PACKAGE ITSELF. If you do not to do it this way, "
+"you can potentially loose data (things like configuration files in /etc/ "
+"will not get synced to the real drive, stay only in the tmpfs and lost on "
+"reboot."
+msgstr ""
+"Jestliže chcete tento balík odebrat, musíte jej nejprve deaktivovat, "
+"restartovat počítač a POUZE V PŘÍPADĚ, ŽE BYL POČÍTAČ NASTARTOVÁN, ANIŽ BY "
+"FLASHYBRID BĚŽEL, MŮŽETE TENTO BALÍK ODEBRAT. Pokud byste takto "
+"nepostupovali, mohli byste přijít o svá data (data jako konfigurační soubory "
+"v /etc/ by se nesynchronizovala s reálným diskem, zůstala by pouze v tmpfs a "
+"při restartu by byla ztracena)."
+
+#. Type: note
+#. Description
+#: ../templates:1001
+msgid ""
+"Please read the Debian documentation found in /usr/share/doc/flashybrid/ "
+"specially README.debian"
+msgstr ""
+"Přečtěte si prosím dokumentaci v /usr/share/doc/flashybrid/, hlavně README."
+"debian"
