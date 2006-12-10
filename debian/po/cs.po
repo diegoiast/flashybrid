@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: flashybrid_0.13_cs-utf8\n"
-"Report-Msgid-Bugs-To: diego.iastrubni@xorcom.com\n"
-"POT-Creation-Date: 2006-12-10 10:08+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-12-10 11:57+0200\n"
 "PO-Revision-Date: 2006-11-05 04:29+0100\n"
 "Last-Translator: Jakub Kasparec <mr.k@centrum.cz>\n"
 "Language-Team: czech <debian-l10n-czech@lists.debian.org>\n"
@@ -18,14 +18,14 @@ msgstr ""
 
 #. Type: note
 #. Description
-#: ../templates:1001
+#: ../templates:3
 #, fuzzy
 msgid "Note about removal of flashybrid package"
 msgstr "Pozor při odebíráni balíku flashybrid"
 
 #. Type: note
 #. Description
-#: ../templates:1001
+#: ../templates:3
 msgid ""
 "Please be warned, this package  changes the way your system behaves in a "
 "really  intrusive way. This package is not enabled by default so it should "
@@ -39,7 +39,7 @@ msgstr ""
 
 #. Type: note
 #. Description
-#: ../templates:1001
+#: ../templates:3
 msgid ""
 "If you want to remove this package, you should first disable it, boot the "
 "machine, and ONLY WHEN THE MACHINE HAS BEEN REBOOTED WITHOUT FLAHYBRID "
@@ -57,7 +57,7 @@ msgstr ""
 
 #. Type: note
 #. Description
-#: ../templates:1001
+#: ../templates:3
 msgid ""
 "Please read the Debian documentation found in /usr/share/doc/flashybrid/ "
 "specially README.debian"
