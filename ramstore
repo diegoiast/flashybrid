@@ -14,9 +14,10 @@
 
 # Should always be in ram disk.
 /etc
+/var/lib/alsa
 /var/lib/asterisk
 /var/lib/discover
-/var/lib/dhcp3
+/var/lib/dbus
 /var/lib/exim4
 /var/lib/op-panel
 /var/lib/logrotate

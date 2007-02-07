@@ -11,13 +11,14 @@
 /var/lock
 /var/lib/alsa
 /var/lib/dhcp
+/var/lib/dhcp3
 /var/lib/php4
+/var/lib/php5
 /var/lib/misc
 /var/lib/ntp
 /var/lib/urandom
-/var/lib/apache/mod-bandwidth/link
+/var/lib/apache
 
 # This could go in ramstore if you prefer for its contents to persist
 # across reboots.
 /var/tmp
-

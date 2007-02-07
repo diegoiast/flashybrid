@@ -1,4 +1,4 @@
-flashybrid (0.13.6) UNRELEASED; urgency=low
+flashybrid (0.13.6) unstable; urgency=low
 
   * NOT RELEASED YET
 
@@ -6,7 +6,13 @@ flashybrid (0.13.6) UNRELEASED; urgency=low
     up and running. Closes #410050;
   * Default configuration file is not a part of this package, to ease
     the upgrade of packages. 
-  * Updated default configuration to match packages on Etch. 
+  * Updated default configuration to match packages on Etch. Sub directories
+    of /var/lib have been added or modified: 
+     - added dhcp3 (keeping dhcp)
+     - added php5 (keeping php4)
+     - added alsa to the ramstore setup
+     - using a lower level apache directory
+  * Removed directory "ram" in the source. It's not installed anyway.
     
  -- Diego Iastrubni <diego.iastrubni@xorcom.com>  Wed, 7 Feb 2007 12:31:11 +0200
 
