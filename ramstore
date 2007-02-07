@@ -14,27 +14,23 @@
 
 # Should always be in ram disk.
 /etc
-/root
+/var/lib/asterisk
+/var/lib/discover
+/var/lib/dhcp3
+/var/lib/exim4
 /var/lib/op-panel
 /var/lib/logrotate
 /var/lib/mysql
-/var/lib/asterisk
-/var/lib/exim4
-/var/lib/discover
 /var/log
 /var/run
-/var/spool/asterisk
+/root
 
-
-# If you don't use devfs, you will want /dev in ram, since many things
-# need to modify it when the system is running.
-/dev
+# If you don't use devfs/udev, you will want /dev in ram, since many things
+# need to modify it when the system is running. Not needed on systems
+# running udev.
+#/dev
 
 # Necessary if the system is to be able to send mail while in embedded
 # mode.
-/var/spool/exim4
-/var/spool/postfix
+/var/spool
 /var/mail
-
-# Other stuff you may find useful.
-#/var/lib/dhcp

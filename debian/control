@@ -8,7 +8,7 @@ Standards-Version: 3.7.2
 
 Package: flashybrid
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}, rsync, debconf
+Depends: ${shlibs:Depends}, ${misc:Depends}, rsync
 Description: automates use of a flash disk as the root filesystem
  Flashybrid is a system to help in setting up and managing hybrid
  flash/disk/ram based Debian systems which can run most of the time
