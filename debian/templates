@@ -7,9 +7,9 @@ _Description: Note about removal of flashybrid package
  documentation. 
  .
  If you want to remove this package, you should first disable it,
- boot the machine, and ONLY WHEN THE MACHINE HAS BEEN REBOOTED WITHOUT FLAHYBRID
+ boot the machine, and ONLY WHEN THE MACHINE HAS BEEN REBOOTED WITHOUT FLASHYBRID
  RUNNING YOU CAN REMOVE THE PACKAGE ITSELF. If you do not to do it this way,
- you can potentially loose data (things like configuration files in /etc/ will
+ you can potentially lose data (things like configuration files in /etc/ will
  not get synced to the real drive, stay only in the tmpfs and lost on reboot.
  .
  Please read the Debian documentation found in /usr/share/doc/flashybrid/

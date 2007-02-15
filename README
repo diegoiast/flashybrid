@@ -36,14 +36,6 @@ Flashybrid integrates with apt, so when you run apt it makes sure the
 full system is available, and after apt runs it updates the
 above mentioned directories.
 
-Flashybrid is configured by files in /etc/flashybrid. The fh-full and
-fh-embed commands make it easy to transition a system between the two
-states. /etc/init.d/flashybrid init script is run at system boot and
-shutdown. The fh-update program updates a flashybrid system after apt
-is run, or you can run it by hand after making manual changes.
-
-For details on setting up a flashybrid system, see INSTALL.
-
 Who:
 
 Flashybrid was created by Joey Hess <joey@kitenet.net>
