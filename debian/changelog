@@ -1,6 +1,4 @@
-flashybrid (0.13.7) unstable; urgency=low
-
-  * NOT RELEASED YET
+flashybrid (0.13.8) unstable; urgency=low
 
   * Warning message is not longer displayed on updates, if the service is
     up and running. Closes: #410050
@@ -19,7 +17,7 @@ flashybrid (0.13.7) unstable; urgency=low
      #410983, #410984, #411031
   * Updated default configuration. Closes: #410989
     
- -- Diego Iastrubni <diego.iastrubni@xorcom.com>  Wed, 7 Feb 2007 12:31:11 +0200
+ -- Diego Iastrubni <diego.iastrubni@xorcom.com>  Tue,  6 Mar 2007 14:35:43 +0200
 
 flashybrid (0.13-0.1) unstable; urgency=low
 
