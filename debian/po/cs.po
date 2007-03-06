@@ -19,7 +19,6 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../templates:1001
-#, fuzzy
 msgid "Note about removal of flashybrid package"
 msgstr "Pozor při odebíráni balíku flashybrid"
 
@@ -40,7 +39,6 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../templates:1001
-#, fuzzy
 msgid ""
 "If you want to remove this package, you should first disable it, boot the "
 "machine, and ONLY WHEN THE MACHINE HAS BEEN REBOOTED WITHOUT FLASHYBRID "

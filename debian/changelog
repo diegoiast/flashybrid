@@ -3,21 +3,21 @@ flashybrid (0.13.7) unstable; urgency=low
   * NOT RELEASED YET
 
   * Warning message is not longer displayed on updates, if the service is
-    up and running. Closes #410050
+    up and running. Closes: #410050
   * Default configuration file is not a part of this package, to ease
-    the upgrade of packages. Closes #410053
+    the upgrade of packages. Closes: #410053
   * Updated default configuration to match packages on Etch. Sub directories
     of /var/lib have been added or modified: 
-     - added dhcp3 (keeping dhcp). Closes #410055
+     - added dhcp3 (keeping dhcp). Closes: #410055
      - added php5 (keeping php4) 
      - added alsa to the ramstore setup
      - using a lower level apache directory
   * Removed directory "ram" in the source. It's not installed anyway.
   * Removed the file "default_orig" in the source. It's not installed
     directly, but created by the config script.
-  * Updated documentation. Closes #410979, #410983, #410980, #410977, 
-    #410981, #410984
-  * Updated default configuration. Closes #410989
+  * Updated documentation. Closes: #410979, #410977, #410980, #410981,
+     #410983, #410984, #411031
+  * Updated default configuration. Closes: #410989
     
  -- Diego Iastrubni <diego.iastrubni@xorcom.com>  Wed, 7 Feb 2007 12:31:11 +0200
 
