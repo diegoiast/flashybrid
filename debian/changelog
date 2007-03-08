@@ -1,4 +1,4 @@
-flashybrid (0.13.8) unstable; urgency=low
+flashybrid (0.14) unstable; urgency=low
 
   * Warning message is not longer displayed on updates, if the service is
     up and running. Closes: #410050
@@ -13,12 +13,12 @@ flashybrid (0.13.8) unstable; urgency=low
   * Removed directory "ram" in the source. It's not installed anyway.
   * Removed the file "default_orig" in the source. It's not installed
     directly, but created by the config script.
-  * Updated documentation. Closes: #410979, #410977, #410980, #410981,
-     #410983, #410984, #411031
+  * Updated documentation, fixed spelling/english errors. Closes: #410979,
+    #410977, #410980, #410981, #410983, #410984, #411031
   * Updated default configuration. Closes: #410989
   * Thanks for the NMU. Closes: #394732, #401922
     
- -- Diego Iastrubni <diego.iastrubni@xorcom.com>  Tue,  6 Mar 2007 14:35:43 +0200
+ -- Diego Iastrubni <diego.iastrubni@xorcom.com>  Thu,  8 Mar 2007 14:35:43 +0200
 
 flashybrid (0.13-0.1) unstable; urgency=low
 
