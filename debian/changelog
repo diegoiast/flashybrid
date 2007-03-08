@@ -16,6 +16,7 @@ flashybrid (0.13.8) unstable; urgency=low
   * Updated documentation. Closes: #410979, #410977, #410980, #410981,
      #410983, #410984, #411031
   * Updated default configuration. Closes: #410989
+  * Thanks for the NMU. Closes: #394732, #401922
     
  -- Diego Iastrubni <diego.iastrubni@xorcom.com>  Tue,  6 Mar 2007 14:35:43 +0200
 
