@@ -2,6 +2,7 @@ flashybrid (0.14.1) unstable; urgency=low
 
   * Fix for depends on non-essential package debconf in postrm. Closes #416750.
     Thanks to Michael Ablassmeier for reporting and fix.
+  * Added German Translation (Thanks Matthias Julius). Closes: #416964
 
  -- Diego Iastrubni <diego.iastrubni@xorcom.com>  Sun,  1 Apr 2007 14:26:36 +0300
 
