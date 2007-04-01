@@ -4,7 +4,9 @@
 
 set -e
 
-. /usr/share/debconf/confmodule
+if [ -f /usr/share/debconf/confmodule ]; then
+	. /usr/share/debconf/confmodule
+fi
 
 # summary of how this script can be called:
 #        * <postrm> `remove'

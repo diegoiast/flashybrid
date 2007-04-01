@@ -1,3 +1,10 @@
+flashybrid (0.14.1) unstable; urgency=low
+
+  * Fix for depends on non-essential package debconf in postrm. Closes #416750.
+    Thanks to Michael Ablassmeier for reporting and fix.
+
+ -- Diego Iastrubni <diego.iastrubni@xorcom.com>  Sun,  1 Apr 2007 14:26:36 +0300
+
 flashybrid (0.14) unstable; urgency=low
 
   * Warning message is not longer displayed on updates, if the service is
