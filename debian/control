@@ -2,7 +2,7 @@ Source: flashybrid
 Section: admin
 Priority: extra
 Maintainer: Diego Iastrubni <diego.iastrubni@xorcom.com>
-Uploaders: Lior Kaplan <kaplan@debian.org>, Tzafrir Cohen <tzafrir.cohen@xorcom.com>
+Uploaders: Tzafrir Cohen <tzafrir.cohen@xorcom.com>
 Build-Depends: debhelper (>= 4.2.32), po-debconf
 Standards-Version: 3.7.2
 
