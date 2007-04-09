@@ -1,0 +1,61 @@
+# Portuguese translation for flashybrid debconf messages
+# Copyright (C) 2007 Luís Picciochi
+# This file is distributed under the same license as the flashybrid package.
+# Luís Picciochi, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: flashybrid 0.14\n"
+"Report-Msgid-Bugs-To: diego.iastrubni@xorcom.com\n"
+"POT-Creation-Date: 2007-02-25 18:34+0200\n"
+"PO-Revision-Date: 2007-04-08 19:55+0000\n"
+"Last-Translator: Luís Picciochi <Pitxyoki@Gmail.com>\n"
+"Language-Team: Portuguese <traduz@debianpt.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: note
+#. Description
+#: ../templates:1001
+msgid "Note about removal of flashybrid package"
+msgstr "Nota acerca da remoção do pacote flashybrid"
+
+#. Type: note
+#. Description
+#: ../templates:1001
+msgid ""
+"Please be warned, this package  changes the way your system behaves in a "
+"really  intrusive way. This package is not enabled by default so it should "
+"not make any problems by just installing it. If you want to enable it, "
+"please read the  documentation."
+msgstr ""
+"Por favor tenha em conta que este pacote muda a forma como o seu sistema se "
+"comporta de uma forma verdadeiramente intrusiva. Este pacote não está "
+"activado por pré-definição e por isso não deve causar problemas apenas por "
+"ser instalado. Se deseja activá-lo, por favor leia a documentação."
+
+#. Type: note
+#. Description
+#: ../templates:1001
+msgid ""
+"If you want to remove this package, you should first disable it, boot the "
+"machine, and ONLY WHEN THE MACHINE HAS BEEN REBOOTED WITHOUT FLASHYBRID "
+"RUNNING YOU CAN REMOVE THE PACKAGE ITSELF. If you do not to do it this way, "
+"you can potentially lose data (things like configuration files in /etc/ will "
+"not get synced to the real drive, stay only in the tmpfs and lost on reboot."
+msgstr ""
+"Se deseja remover este pacote, deve desactivá-lo primeiro, iniciar a máquina "
+"e SÓ DEPOIS DE A MÁQUINA TER SIDO REINICIADA SEM O FLASHYBRID A SER EXECUTADO "
+"É QUE PODE REMOVER O PACOTE EM SI. Se não o fizer desta forma, poderá perder "
+"dados (coisas como ficheiros de configuração em /etc/ não serão sincronizadas "
+"com a drive real, ficarão apenas no tmpfs e serão perdidas ao reiniciar)."
+
+#. Type: note
+#. Description
+#: ../templates:1001
+msgid ""
+"Please read the Debian documentation found in /usr/share/doc/flashybrid/ "
+"specially README.debian"
+msgstr ""
+"Por favor leia a documentação do Debian em /usr/share/doc/flashybrid/, "
+"especialmente o README.debian"
