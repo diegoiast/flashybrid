@@ -3,7 +3,7 @@ flashybrid (0.14.3) unstable; urgency=low
   * Fix for package removal when debconf not available. Closes: #416750.
     Thanks to Michael Ablassmeier for reporting and fix.
   * Added German translation (Thanks Matthias Julius). Closes: #416964.
-  * Added Portuguese translation (Thanks Lui≠s Piccioch). Closes: #418279.
+  * Added Portuguese translation (Thanks Lu√≠s Piccioch). Closes: #418279.
   * Now depends on debhelper <= 5.0.0 (Etch and above, no Sarge).
 
  -- Diego Iastrubni <diego.iastrubni@xorcom.com>  Sun,  10 Apr 2007 14:26:36 +0300
