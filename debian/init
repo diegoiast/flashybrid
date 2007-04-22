@@ -75,6 +75,12 @@ start)
 	# Temporary directories on ram disk.
 	cp $CONFDIR/ramtmp $RAMMOUNT/.fh-config-ramtmp
 	for dir in $(grep -v '^#' $CONFDIR/ramtmp); do
+		# if mount point not found, try to create it
+		if [ ! -d $dir ]; then
+			mkdir -p $dir || true
+		fi
+
+		# lets hope it's available by now ;-)
 		if [ -d $dir ]; then
         		mkdir -p -m 1777 $RAMMOUNT/$dir
 			if is_mounted $dir; then
