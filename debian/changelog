@@ -1,3 +1,9 @@
+flashybrid (0.15.1) unstable; urgency=low
+
+  * Fixed first time configuration script
+
+ -- Diego Iastrubni <diego.iastrubni@xorcom.com>  Wed,  9 May 2007 17:42:58 +0300
+
 flashybrid (0.15) unstable; urgency=low
 
   * Fix for package removal when debconf not available. Closes: #416750.

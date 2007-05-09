@@ -11,7 +11,7 @@ else
         # and when users modify it, they will not be
         # asked stupid questions.
 
-echo > /etc/default/flashybrid <<EOF
+cat > /etc/default/flashybrid <<EOF
 # This file controls the flashybrid init script.
 
 # Whether to start flashybrid on boot, and shut it down on shutdown.
