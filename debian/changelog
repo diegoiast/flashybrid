@@ -1,8 +1,9 @@
-flashybrid (0.15.1) unstable; urgency=low
+flashybrid (0.15.2) unstable; urgency=low
 
   * Fixed first time configuration script
+  * Added a sync before writing the files back to the disk
 
- -- Diego Iastrubni <diego.iastrubni@xorcom.com>  Wed,  9 May 2007 17:42:58 +0300
+ -- Diego Iastrubni <diego.iastrubni@xorcom.com>  Thu,  9 Aug 2007 09:44:42 +0300
 
 flashybrid (0.15) unstable; urgency=low
 

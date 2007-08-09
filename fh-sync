@@ -52,7 +52,9 @@ fi
 
 # Copy data to flash.
 # Remount the flash read-write so the copies to it will work.
+sync
 mountrw
+
 RAMSTORAGE=$RAMMOUNT/.fh-config-ramstore
 
 if [ ! -f $RAMSTORAGE ]; then
